@@ -7,4 +7,16 @@ public class QueryService
     This class is responsible for talking to the Singleton
     and FireBase so add any relevant methods here
      */
+    private DataRepositorySingleton mDRS;
+
+    public QueryService()
+    {
+        mDRS = DataRepositorySingleton.GetInstance();
+    }
+
+    public String GetUserEmail()
+    {
+        // at this point we assume the user is signed into FireBase
+        return mDRS.GetUser().getEmail();
+    }
 }
