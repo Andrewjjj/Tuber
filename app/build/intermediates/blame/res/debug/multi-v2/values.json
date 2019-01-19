@@ -1,25 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/AMAN/Desktop/Hackathon/TestFirebase/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
+            "outputFile": "/Users/AMAN/Desktop/Hackathon/Tuber/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml",
             "map": [
-                {
-                    "source": "/Users/AMAN/Desktop/Hackathon/TestFirebase/app/build/generated/res/google-services/debug/values/values.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,199,318,400,504,607,727,835",
-                        "endColumns": "143,118,81,103,102,119,107,84",
-                        "endOffsets": "194,313,395,499,602,722,830,915"
-                    },
-                    "to": {
-                        "startLines": "697,698,699,700,701,702,703,704",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "60213,60357,60476,60558,60662,60765,60885,60993",
-                        "endColumns": "143,118,81,103,102,119,107,84",
-                        "endOffsets": "60352,60471,60553,60657,60760,60880,60988,61073"
-                    }
-                },
                 {
                     "source": "/Users/AMAN/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/8f292da723a745dce7d184b59fb759e2/res/values/values.xml",
                     "from": {
@@ -35,6 +18,23 @@
                         "startOffsets": "10004,149405,149581,149703,149965,150160",
                         "endColumns": "88,65,121,60,65,66",
                         "endOffsets": "10088,149466,149698,149759,150026,150222"
+                    }
+                },
+                {
+                    "source": "/Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/res/values/strings.xml",
+                    "from": {
+                        "startLines": "1",
+                        "startColumns": "4",
+                        "startOffsets": "16",
+                        "endColumns": "49",
+                        "endOffsets": "61"
+                    },
+                    "to": {
+                        "startLines": "678",
+                        "startColumns": "4",
+                        "startOffsets": "57830",
+                        "endColumns": "49",
+                        "endOffsets": "57875"
                     }
                 },
                 {
@@ -57,20 +57,37 @@
                     }
                 },
                 {
-                    "source": "/Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/res/values/strings.xml",
+                    "source": "/Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/res/values/colors.xml",
                     "from": {
-                        "startLines": "1",
-                        "startColumns": "4",
-                        "startOffsets": "16",
-                        "endColumns": "49",
-                        "endOffsets": "61"
+                        "startLines": "4,2,3",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "153,55,102",
+                        "endColumns": "45,46,50",
+                        "endOffsets": "194,97,148"
                     },
                     "to": {
-                        "startLines": "678",
-                        "startColumns": "4",
-                        "startOffsets": "57830",
-                        "endColumns": "49",
-                        "endOffsets": "57875"
+                        "startLines": "153,154,155",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "7704,7750,7797",
+                        "endColumns": "45,46,50",
+                        "endOffsets": "7745,7792,7843"
+                    }
+                },
+                {
+                    "source": "/Users/AMAN/Desktop/Hackathon/Tuber/app/build/generated/res/google-services/debug/values/values.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,199,318,400,504,607,727,835",
+                        "endColumns": "143,118,81,103,102,119,107,84",
+                        "endOffsets": "194,313,395,499,602,722,830,915"
+                    },
+                    "to": {
+                        "startLines": "697,698,699,700,701,702,703,704",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "60213,60357,60476,60558,60662,60765,60885,60993",
+                        "endColumns": "143,118,81,103,102,119,107,84",
+                        "endOffsets": "60352,60471,60553,60657,60760,60880,60988,61073"
                     }
                 },
                 {
@@ -108,7 +125,7 @@
                     }
                 },
                 {
-                    "source": "/Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/res/values/styles.xml",
+                    "source": "/Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/res/values/styles.xml",
                     "from": {
                         "startLines": "3",
                         "startColumns": "4",
@@ -124,23 +141,6 @@
                         "endLines": "717",
                         "endColumns": "12",
                         "endOffsets": "61958"
-                    }
-                },
-                {
-                    "source": "/Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/res/values/colors.xml",
-                    "from": {
-                        "startLines": "4,2,3",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "153,55,102",
-                        "endColumns": "45,46,50",
-                        "endOffsets": "194,97,148"
-                    },
-                    "to": {
-                        "startLines": "153,154,155",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "7704,7750,7797",
-                        "endColumns": "45,46,50",
-                        "endOffsets": "7745,7792,7843"
                     }
                 },
                 {

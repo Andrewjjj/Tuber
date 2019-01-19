@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/AMAN/Desktop/Hackathon/TestFirebase/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-fr/values-fr.xml",
+            "outputFile": "/Users/AMAN/Desktop/Hackathon/Tuber/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-fr/values-fr.xml",
             "map": [
                 {
                     "source": "/Users/AMAN/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/d862ac3f91d92abba97b9482b4ab0331/res/values-fr/values-fr.xml",

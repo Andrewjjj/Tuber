@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/AMAN/Desktop/Hackathon/TestFirebase/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-bg/values-bg.xml",
+            "outputFile": "/Users/AMAN/Desktop/Hackathon/Tuber/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-bg/values-bg.xml",
             "map": [
                 {
                     "source": "/Users/AMAN/.gradle/caches/transforms-1/files-1.1/play-services-basement-16.1.0.aar/3bbd3d42a950005acd3c575b9549edf8/res/values-bg/values.xml",

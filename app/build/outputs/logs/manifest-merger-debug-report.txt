@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:2:1-25:12
-INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:2:1-25:12
-INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:2:1-25:12
-INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:2:1-25:12
+ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:2:1-25:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/d862ac3f91d92abba97b9482b4ab0331/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/0be040271bfb8da06caab7956e447dba/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.firebase:firebase-core:16.0.6] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.6.aar/e638aa89a22a994a90119d03a79bcdda/AndroidManifest.xml:2:1-9:12
@@ -51,25 +51,25 @@ MERGED from [com.android.support:localbroadcastmanager:28.0.0] /Users/AMAN/.grad
 MERGED from [com.android.support:print:28.0.0] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/print-28.0.0.aar/4247bf3c96404e589311dbbf69e28adf/AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/3598c3650bf317c8b5c035f12a620fee/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:interpolator:28.0.0] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/103e1ce1866dda1671d0c9359a64d18e/AndroidManifest.xml:17:1-22:12
-INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:2:1-25:12
-INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:2:1-25:12
-INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:2:1-25:12
+INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:2:1-25:12
 	package
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:3:5-44
-		INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:3:5-44
+		INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml
 	android:versionName
-		INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:2:1-25:12
-		INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:2:1-25:12
+		INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml
 	android:versionCode
-		INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:2:1-25:12
-		INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:2:1-25:12
+		INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml
 	xmlns:android
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:2:11-69
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:5:5-67
+ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:5:5-67
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.4] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.4.aar/2a0825a94b9067f307d3e016ae96765f/AndroidManifest.xml:22:5-67
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.4] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/firebase-measurement-connector-impl-17.0.4.aar/2a0825a94b9067f307d3e016ae96765f/AndroidManifest.xml:22:5-67
 MERGED from [com.google.firebase:firebase-analytics:16.0.6] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/firebase-analytics-16.0.6.aar/4a55c1dd59bac51f88ae41726a32cf6b/AndroidManifest.xml:23:5-67
@@ -79,9 +79,9 @@ MERGED from [com.google.firebase:firebase-analytics-impl:16.2.4] /Users/AMAN/.gr
 MERGED from [com.google.firebase:firebase-iid:17.0.3] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.0.3.aar/529c3d609e368bbcbae4e100842d7b58/AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-iid:17.0.3] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/firebase-iid-17.0.3.aar/529c3d609e368bbcbae4e100842d7b58/AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:5:22-64
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:5:22-64
 application
-ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:7:5-23:19
+ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:7:5-23:19
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/0be040271bfb8da06caab7956e447dba/AndroidManifest.xml:9:5-20
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/0be040271bfb8da06caab7956e447dba/AndroidManifest.xml:9:5-20
 MERGED from [com.google.firebase:firebase-core:16.0.6] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/firebase-core-16.0.6.aar/e638aa89a22a994a90119d03a79bcdda/AndroidManifest.xml:7:5-20
@@ -129,43 +129,43 @@ MERGED from [com.android.support:versionedparcelable:28.0.0] /Users/AMAN/.gradle
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/d21781f328dfa2b51a7079de1d748ca9/AndroidManifest.xml:22:18-91
 	android:supportsRtl
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:12:9-35
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:12:9-35
 	android:label
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:10:9-41
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:10:9-41
 	android:roundIcon
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:11:9-54
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:11:9-54
 	android:icon
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:9:9-43
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:9:9-43
 	android:allowBackup
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:8:9-35
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:8:9-35
 	android:theme
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:13:9-40
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:13:9-40
 activity#com.example.aman.testfirebase.MainActivity
-ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:14:9-20:20
+ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:14:9-20:20
 	android:name
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:14:19-47
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:14:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:15:13-19:29
+ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:15:13-19:29
 action#android.intent.action.MAIN
-ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:16:17-69
+ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:16:17-69
 	android:name
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:16:25-66
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:16:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:18:17-77
+ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:18:17-77
 	android:name
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:18:27-74
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:18:27-74
 activity#com.example.aman.testfirebase.SignIn
-ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:21:9-44
+ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:21:9-44
 	android:name
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:21:19-41
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:21:19-41
 activity#com.example.aman.testfirebase.LoggedIn
-ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:22:9-55
+ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:22:9-55
 	android:name
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml:22:19-43
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml:22:19-43
 uses-sdk
-INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml
-INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml
+INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml
+INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/d862ac3f91d92abba97b9482b4ab0331/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/d862ac3f91d92abba97b9482b4ab0331/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support.constraint:constraint-layout:1.1.3] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/constraint-layout-1.1.3.aar/0be040271bfb8da06caab7956e447dba/AndroidManifest.xml:5:5-7:41
@@ -260,18 +260,18 @@ MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/AMAN/.gradle/caches/
 MERGED from [android.arch.lifecycle:viewmodel:1.1.1] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/viewmodel-1.1.1.aar/3598c3650bf317c8b5c035f12a620fee/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:interpolator:28.0.0] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/103e1ce1866dda1671d0c9359a64d18e/AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:interpolator:28.0.0] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/interpolator-28.0.0.aar/103e1ce1866dda1671d0c9359a64d18e/AndroidManifest.xml:20:5-44
-INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml
-INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml
+INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml
+INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml
 	tools:overrideLibrary
 		ADDED from [com.android.support:support-v4:26.1.0] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/f9a06f8bfd4b51de261fc9754d44c771/AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
-		INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml
-		ADDED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/AMAN/Desktop/Hackathon/TestFirebase/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml
+		ADDED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/AMAN/Desktop/Hackathon/Tuber/app/src/main/AndroidManifest.xml
 activity#com.google.firebase.auth.internal.FederatedSignInActivity
 ADDED from [com.google.firebase:firebase-auth:16.1.0] /Users/AMAN/.gradle/caches/transforms-1/files-1.1/firebase-auth-16.1.0.aar/41cc2608ee9c550e1b4ffb294048508b/AndroidManifest.xml:24:9-31:50
 	android:excludeFromRecents
