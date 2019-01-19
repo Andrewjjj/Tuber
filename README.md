@@ -6,8 +6,7 @@
  
   Google Map Service:		 Google Map Service:
 
- 
-      implementation 'com.google.android.gms:play-services-maps:16.0.0'		     implementation 'com.google.android.gms:play-services-maps:16.0.0'
+      implementation 'com.google.android.gms:play-services-maps:16.0.0'
 
   Google Design:
  Replace YOUR_VERSION with the same version as your appcompat-v7 version.
