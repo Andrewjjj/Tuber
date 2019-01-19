@@ -1,0 +1,4 @@
+#Sat Jan 19 12:48:11 MST 2019
+base.0=/Users/AMAN/Desktop/Hackathon/TestFirebase/app/build/intermediates/transforms/dexMerger/debug/0
+path.0=classes.dex
+renamed.0=classes.dex
