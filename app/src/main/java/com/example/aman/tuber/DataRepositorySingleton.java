@@ -1,5 +1,7 @@
 package com.example.aman.tuber;
 
+import com.google.firebase.auth.FirebaseUser;
+
 public class DataRepositorySingleton
 {
     /*
@@ -14,11 +16,23 @@ public class DataRepositorySingleton
 
     protected DataRepositorySingleton() {}
 
+    private FirebaseUser mUser;
+
 
     // lazy construction of the instance
     public static DataRepositorySingleton GetInstance()
     {
         if (instance == null) instance = new DataRepositorySingleton();
         return instance;
+    }
+
+    public void SetUser(FirebaseUser user)
+    {
+        mUser = user;
+    }
+
+    public FirebaseUser GetUser()
+    {
+        return mUser;
     }
 }
