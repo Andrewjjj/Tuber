@@ -1,5 +1,6 @@
 package com.example.aman.tuber;
 
+
 public class QueryService
 {
     /* This is where every activity will go to
@@ -18,5 +19,14 @@ public class QueryService
     {
         // at this point we assume the user is signed into FireBase
         return mDRS.GetUser().getEmail();
+    }
+
+
+    public void SignUp(String Email, String password){
+
+    }
+
+    public void SignIn(String Email, String password){
+
     }
 }
