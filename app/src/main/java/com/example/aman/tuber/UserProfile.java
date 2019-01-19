@@ -26,4 +26,8 @@ public class UserProfile
     private ArrayList<Transaction> mActiveTransactions;
     private ArrayList<Transaction> mPendingTransaction;
     private ArrayList<Transaction> mPastTransactions;
+
+    public UserProfile(String email){
+        mEmail = email;
+    }
 }

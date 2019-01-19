@@ -21,12 +21,11 @@ public class QueryService
         return mDRS.GetUser().getEmail();
     }
 
-
-    public void SignUp(String Email, String password){
+    public void SignUp(String UID){
 
     }
 
-    public void SignIn(String Email, String password){
+    public void SignIn(String UID){
 
     }
 }
