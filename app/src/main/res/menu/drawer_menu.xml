@@ -7,7 +7,7 @@
         <item
             android:id="@+id/nav_account"
             android:icon="@drawable/ic_account_circle_icon"
-            android:title="Account" />
+            android:title="Edit Account" />
     </group>
 
     <item android:title="Communicate">
