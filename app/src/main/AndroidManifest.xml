@@ -29,8 +29,13 @@
 
         <activity
             android:name=".MapsActivity"
+<<<<<<< HEAD
             android:label="@string/title_activity_maps" />
         <activity android:name=".MainActivity">
+=======
+            android:label="@string/title_activity_maps"></activity>
+        <activity android:name=".LoginActivity">
+>>>>>>> bf2a81dfd665f3ebdba8d75807d898876f609ba9
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
