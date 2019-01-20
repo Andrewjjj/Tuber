@@ -11,6 +11,8 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.widget.Toast;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 
 public class UserProfile extends FragmentActivity {
@@ -38,10 +40,9 @@ public class UserProfile extends FragmentActivity {
     public LocationManager locationManager;
     public LocationListener locationListener;
 
-    public UserProfile(LocationManager locationManager, LocationListener locationListener) {
-        locationManager = this.locationManager;
-        locationListener = this.locationListener;
-    }
+    private LatLng myLatLng;
+    private double myLat;
+    private double myLon;
 
     public UserProfile(String email){
         mEmail = email;
@@ -50,12 +51,23 @@ public class UserProfile extends FragmentActivity {
     public UserProfile(){
     }
 
+    public UserProfile(double lat, double lon){
+        this.myLat = lat;
+        this.myLon = lon;
+    }
+
+    public UserProfile(LatLng latlng){
+        this.myLatLng = latlng;
+    }
+
+//    public getCoordinates
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 1) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
                 }
             }
@@ -63,7 +75,7 @@ public class UserProfile extends FragmentActivity {
     }
 
     public boolean checkPermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
             return true;
         } else {
             requestLocationPermission();
@@ -71,6 +83,7 @@ public class UserProfile extends FragmentActivity {
         }
     }
 
+    // Might not need
     public boolean updateMyLocation() {
         if (checkPermission()) {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
@@ -85,6 +98,10 @@ public class UserProfile extends FragmentActivity {
 
     public Location getLocationInfo(){
         return mCurrentLocation;
+    }
+
+    public LatLng getMyLatLng(){
+        return myLatLng;
     }
 
     public double getMyLat(){

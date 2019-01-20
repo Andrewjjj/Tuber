@@ -65,5 +65,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         map.clear();
     }
 
+    public void testData(){
+
+    }
 
 }
