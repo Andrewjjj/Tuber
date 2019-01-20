@@ -171,6 +171,9 @@ public class AssignProfilePictureActivity extends AppCompatActivity {
     }
 
     public void Save(View view){
+
         storeInFirebase(uri);
+        Intent myIntent = new Intent(AssignProfilePictureActivity.this, SkillsActivity.class);
+        startActivity(myIntent);
     }
 }
