@@ -92,7 +92,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                             DRS.SetUser(firebaseUser);
 
-                            UserProfile userProfile = new UserProfile(firebaseUser.getUid(), email, "", "", "", new ArrayList<String>(), new ArrayList<String>(), new ArrayList<String>(), new ArrayList<String>(), new ArrayList<String>(), 0.0, 0.0);
+                            UserProfile userProfile = new UserProfile(firebaseUser.getUid(), email, "", "", new ArrayList<String>(), new ArrayList<String>(), new ArrayList<String>(), new ArrayList<String>(), new ArrayList<String>(), 0.0, 0.0);
                             DRS.setUserProfile(userProfile);
 
                             // add to the database

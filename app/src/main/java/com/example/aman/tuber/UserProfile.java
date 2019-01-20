@@ -23,7 +23,6 @@ public class UserProfile
     String mName;
     String mEmail;
     String mPhone;
-    String mProfilePictureId;
     List<String> mCourseIds; // courses the user is capable of teaching
     List<String> mSkillIds; // skills the user is capable of teaching
     //private Location mCurrentLocation; // TODO: we have to figure out when to update this
@@ -47,14 +46,6 @@ public class UserProfile
 
     public void setmName(String mName) {
         this.mName = mName;
-    }
-
-    public String getmProfilePictureId() {
-        return mProfilePictureId;
-    }
-
-    public void setmProfilePictureId(String mProfilePictureId) {
-        this.mProfilePictureId = mProfilePictureId;
     }
 
 
@@ -126,13 +117,12 @@ public class UserProfile
 
     public UserProfile() {}
 
-    public UserProfile(String UID, String email, String name, String phone, String profilePictureId, List<String> courseIds, List<String> skillIds, List<String> activeTransactions, List<String> pendingTransactions, List<String> pastTransactions, double lat, double lon)
+    public UserProfile(String UID, String email, String name, String phone, List<String> courseIds, List<String> skillIds, List<String> activeTransactions, List<String> pendingTransactions, List<String> pastTransactions, double lat, double lon)
     {
         mUID = UID;
         mEmail = email;
         mName = name;
         mPhone = phone;
-        mProfilePictureId = profilePictureId;
         mCourseIds = courseIds;
         mSkillIds = skillIds;
         mPendingTransactionIds = pendingTransactions;
