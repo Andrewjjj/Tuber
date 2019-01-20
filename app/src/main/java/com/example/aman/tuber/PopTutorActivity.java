@@ -28,13 +28,13 @@ public class PopTutorActivity extends Activity {
     Button send_request_button;
 
 
-    ValueEventListener mUserProfileListener;
+    ValueEventListener mSkillListener;
     DatabaseReference mDatabaseReference;
     String mUID;
     QueryService mQueryService;
     DataRepositorySingleton mDRS;
 
-    List<String> mSkills;
+    List<Skill> mSkills;
 
     UserProfile user;
 
@@ -42,6 +42,8 @@ public class PopTutorActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_popup_tutor);
+
+        mSkills = new ArrayList<>();
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -84,18 +86,14 @@ public class PopTutorActivity extends Activity {
         a.add("asd");
         a.add("22");
 
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("userProfiles");
-
-        mUID = mQueryService.GetCurrentUserUID();
-        mUserProfileListener = new ValueEventListener() {
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("skills");
+        mSkillListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot messageSnapshot : dataSnapshot.getChildren()) {
-                    UserProfile profile = messageSnapshot.getValue(UserProfile.class);
-                    if (profile.GetUID().equals(mUID)) {
-                        mDRS.setUserProfile(profile);
-                        Log.i("SigninActivity", "Found the right user Profile");
-                        break;
+                    Skill skill = messageSnapshot.getValue(Skill.class);
+                    if (user.getmSkillIds().contains(skill.GetSkillId())) {
+                        mSkills.add(skill);
                     }
                 }
             }
@@ -104,10 +102,32 @@ public class PopTutorActivity extends Activity {
             }
         };
 
-
+        mDatabaseReference.addListenerForSingleValueEvent(mSkillListener);
         ArrayAdapter skillDropdownAdopter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, a);
         findSkillSpinner.setAdapter(skillDropdownAdopter);
 
+    }
+
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+        mSkillListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot messageSnapshot : dataSnapshot.getChildren()) {
+                    Skill skill = messageSnapshot.getValue(Skill.class);
+                    if (user.getmSkillIds().contains(skill.GetSkillId())) {
+                        mSkills.add(skill);
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        };
+
+        mDatabaseReference.addListenerForSingleValueEvent(mSkillListener);
     }
 
     public void send_request(){
