@@ -1,5 +1,6 @@
 package com.example.aman.tuber;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -54,6 +55,8 @@ public class GatherNameActivity extends AppCompatActivity {
             mDatabase.child("userProfiles").child(userProfile.GetUID()).setValue(userProfile);
             // TODO: Go to new activity
             Snackbar.make(findViewById(android.R.id.content), "Going to new activity", Snackbar.LENGTH_SHORT).show();
+
+            startActivity(new Intent(this, AssignProfilePictureActivity.class));
         }
     }
 }

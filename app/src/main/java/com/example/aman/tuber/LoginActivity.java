@@ -30,6 +30,8 @@ public class LoginActivity extends AppCompatActivity {
     //our database reference object
     DatabaseReference databaseUserProfile;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
