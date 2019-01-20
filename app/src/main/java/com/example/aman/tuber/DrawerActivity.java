@@ -37,6 +37,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, NavigationView.OnNavigationItemSelectedListener {
@@ -70,6 +71,8 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
     LatLng edmontonLatLng = new LatLng(53.631611, -113.323975);
 
     Location lastKnownLocation;
+
+    private HashMap<Integer, Marker> visibleMarkers = new HashMap<>();
 
     boolean tutorMode = false;
 
@@ -214,6 +217,7 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
+
                 getCurrentLocation();
             }
 
@@ -257,9 +261,9 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
             @Override
             public boolean onMarkerClick(Marker marker){
-                Log.i("asd", "222222");
                 Intent i = new Intent(getApplicationContext(), PopActivity.class);
                 startActivity(i);
+
                 return true;
             }
         });
@@ -282,6 +286,17 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
     public void getCurrentLocation(){
         if(checkPermission()){
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+            // TODO: Submit this information to the database
+//            ArrayList<String> skillIds = new ArrayList<>();
+
+
+            UserProfile profile = mQueryService.GetUserProfile();
+            profile.setmLat(locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLatitude());
+            profile.setmLon(locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER).getLongitude());
+//            profile.setmSkillIds(skillIds);
+
+            mDatabaseReference.child("userProfiles").child(profile.GetUID()).setValue(profile);
+
 //            Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         }
         else{
@@ -298,7 +313,10 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
 //    }
 
     public void addMarker(LatLng latlng){
-        mMap.addMarker(new MarkerOptions().position(latlng));
+        mMap.addMarker(new MarkerOptions()
+                .position(latlng)
+
+        );
     }
 
     public void displayUserCoordinates(ArrayList<TutorOffer> listOfUsers){
