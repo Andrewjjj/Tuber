@@ -1,7 +1,9 @@
 package com.example.aman.tuber;
 
+
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -13,6 +15,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    UserProfile user = new UserProfile();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +41,29 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        updateLocation();
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        Log.i("asd","AS@@@@@@@@@@@@@@@@@@D23123123");
+
+
     }
+
+    public void updateLocation(){
+        clearMap(mMap);
+        if(user.updateMyLocation()){
+            LatLng myLocation = new LatLng(user.getMyLat(), user.getMyLon());
+            mMap.addMarker(new MarkerOptions().position(myLocation).title("MyLocation"));
+            moveCameraToUser(myLocation);
+        }
+    }
+
+    public void moveCameraToUser(LatLng latlng){
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng, 5));
+    }
+
+    public void clearMap(GoogleMap map){
+        map.clear();
+    }
+
+
 }

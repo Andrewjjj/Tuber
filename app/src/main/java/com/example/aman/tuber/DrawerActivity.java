@@ -6,8 +6,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.widget.Toast;
 
-public class DrawerActivity extends AppCompatActivity {
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+
+public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallback {
     private DrawerLayout drawer;
 
     @Override
@@ -24,6 +30,10 @@ public class DrawerActivity extends AppCompatActivity {
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
     }
 
     @Override
@@ -33,5 +43,11 @@ public class DrawerActivity extends AppCompatActivity {
         } else {
             super.onBackPressed();
         }
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        Toast.makeText(this, "ASDASDASD", Toast.LENGTH_LONG);
+        Log.i("AS@@@@@@@@@@@@@@@@@@D", "AS@@@@@@@@@@@@@@@@@@DAS@@@@@@@@@@@@@@@@@@D");
     }
 }
