@@ -46,8 +46,7 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
     protected void onStart()
     {
         super.onStart();
-        mQueryService = new QueryService();
-        mDRS = DataRepositorySingleton.GetInstance();
+
         mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("userProfiles");
 
         mUID = mQueryService.GetCurrentUserUID();
@@ -58,10 +57,12 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
             {
                 for (DataSnapshot messageSnapshot: dataSnapshot.getChildren())
                 {
-                    if (messageSnapshot.getKey().equals(mUID))
+                    UserProfile profile = messageSnapshot.getValue(UserProfile.class);
+                    if (profile.GetUID().equals(mUID))
                     {
-                        UserProfile profile = messageSnapshot.getValue(UserProfile.class);
                         mDRS.setUserProfile(profile);
+                        Log.i("SigninActivity", "Found the right user Profile");
+                        break;
                     }
                 }
             }
@@ -73,12 +74,16 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
             }
         };
         mDatabaseReference.addListenerForSingleValueEvent(mUserProfileListener);
+        UserProfile userProfile = mQueryService.GetUserProfile();
+
     }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mQueryService = new QueryService();
+        mDRS = DataRepositorySingleton.GetInstance();
         setContentView(R.layout.activity_drawer_layout);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -94,6 +99,7 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
 
 //        popup_button.setOnClickListener(new View.OnClickListener() {
 //            @Override
