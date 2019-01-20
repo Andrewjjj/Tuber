@@ -53,6 +53,7 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
 
     ValueEventListener mUserProfileListener;
     ValueEventListener mOfferListener;
+
     DatabaseReference mDatabaseReference;
     DatabaseReference mOfferReference;
     String mUID;
@@ -66,6 +67,7 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
 
     UserProfile user;
 
+    LatLng edmontonLatLng = new LatLng(53.631611, -113.323975);
 
     Location lastKnownLocation;
 
@@ -232,7 +234,14 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
 
         };
 
-        getCurrentLocation();
+        try{
+            getCurrentLocation();
+        } catch (Exception e){
+
+        }
+
+
+        moveCameraToUser(edmontonLatLng);
 
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
             @Override
@@ -254,6 +263,7 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
                 return true;
             }
         });
+
     }
 
     public boolean checkPermission(){
@@ -272,9 +282,7 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
     public void getCurrentLocation(){
         if(checkPermission()){
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-            Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            moveCameraToUser(new LatLng(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude()));
-
+//            Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
         }
         else{
             requestPermission();
@@ -285,19 +293,19 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
         mMap.clear();
     }
 
-    public void displayMarkers(View view){
-        displayUserCoordinates(userLists);
-    }
+//    public void displayMarkers(View view){
+//        displayUserCoordinates(userLists);
+//    }
 
     public void addMarker(LatLng latlng){
         mMap.addMarker(new MarkerOptions().position(latlng));
     }
 
-    public void displayUserCoordinates(ArrayList<UserProfile> listOfUsers){
-        Iterator<UserProfile> it = listOfUsers.iterator();
+    public void displayUserCoordinates(ArrayList<TutorOffer> listOfUsers){
+        Iterator<TutorOffer> it = offers.iterator();
         while(it.hasNext()){
-            UserProfile user = it.next();
-            addMarker(user.getMyLatLng());
+            TutorOffer user = it.next();
+            addMarker(new LatLng(user.GetLat(), user.GetLon()));
         }
     }
 /*
@@ -310,13 +318,12 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
         }
     }*/
     public void moveCameraToUser(LatLng latlng){
-//        mMap.addMarker(new MarkerOptions().position(latlng).title("My Location Updated"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng, 5));
 
     }
 
-    public void clearMap(GoogleMap map){
-        map.clear();
+    public void clearMap(){
+        mMap.clear();
     }
 
     @Override
@@ -345,9 +352,11 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
     public void studentMode(){
         tutorMode = false;
         start_tutoring_button.setVisibility(View.INVISIBLE);
+        displayUserCoordinates(offers);
     }
     public void tutorMode(){
         tutorMode = true;
+        clearMap();
         start_tutoring_button.setVisibility(View.VISIBLE);
     }
 }
