@@ -1,10 +1,12 @@
 package com.example.aman.tuber;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.ColorSpace;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -19,6 +21,7 @@ public class SkillsActivity extends AppCompatActivity {
     ArrayList<Skill> skills;
     SkillListAdapter mSkillListAdapter;
     QueryService mQueryService;
+    Button finishRegister;
 
 
     @Override
@@ -42,6 +45,18 @@ public class SkillsActivity extends AppCompatActivity {
         addSkillDescriptionEditText = (EditText) findViewById(R.id.skillDescriptionEditText);
         skillListView = (ListView)findViewById(R.id.listview);
         skillListView.setAdapter(mSkillListAdapter);
+
+        finishRegister = (Button) findViewById(R.id.finish_registration);
+        finishRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                // TODO: Submit this information to the database
+
+                Intent myIntent = new Intent(SkillsActivity.this, DrawerActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
     public void onAddSkill(View v) {
