@@ -10,12 +10,14 @@ import android.widget.LinearLayout;
 public class UserinfoActivity extends AppCompatActivity {
 
     private LinearLayout parentLinearLayout;
+    private LinearLayout parentLinearLayout2;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userinfo);
         parentLinearLayout = (LinearLayout) findViewById(R.id.parent_linear_layout);
+        parentLinearLayout2 = (LinearLayout) findViewById(R.id.parent_linear_layout2);
     }
 
     public void onAdd(View v) {
@@ -25,8 +27,19 @@ public class UserinfoActivity extends AppCompatActivity {
         parentLinearLayout.addView(rowView, parentLinearLayout.getChildCount() - 1);
     }
 
+    public void onAdd2(View v) {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        final View rowView = inflater.inflate(R.layout.field, null);
+        // Add the new row before the add field button.
+        parentLinearLayout2.addView(rowView, parentLinearLayout2.getChildCount() - 1);
+    }
+
     public void onDelete(View v) {
         parentLinearLayout.removeView((View) v.getParent());
+    }
+
+    public void onDelete2(View v) {
+        parentLinearLayout2.removeView((View) v.getParent());
     }
 
 }
