@@ -1,14 +1,14 @@
 # Tuber
 
+Location based tutor finding app!
+ 
  
   Add following in the build.gradle implementation:		 Add the following implementations to build.gradle module file:
 
  
-  Google Map Service:		 Google Map Service:
-
-      implementation 'com.google.android.gms:play-services-maps:16.0.0'
-
-  Google Design:
- Replace YOUR_VERSION with the same version as your appcompat-v7 version.
-
-      implementation 'com.android.support:design:YOUR_VERSION'
+    implementation 'com.google.firebase:firebase-core:16.0.6'
+    implementation 'com.google.firebase:firebase-auth:16.1.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.google.maps.android:android-maps-utils:0.5+'
+    implementation 'com.onesignal:OneSignal:[3.9.1, 3.99.99]'
+    implementation 'com.squareup.okhttp3:okhttp:3.6.0'
