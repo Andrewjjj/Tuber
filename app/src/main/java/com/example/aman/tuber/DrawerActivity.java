@@ -8,17 +8,20 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
-import android.widget.Switch;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -36,14 +39,15 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
+public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawer;
     private String testVar = "1";
     private GoogleMap mMap;
     private int userNameNumber = 0;
     Button popup_button;
     Button start_tutoring_button;
-    Switch tutor_mode_switch;
+    MenuItem studentModeItem;
+    SwitchCompat tutor_mode_switch;
 
     ArrayList<UserProfile> userLists = new ArrayList<>();
 
@@ -58,7 +62,10 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
 
     UserProfile user;
 
+
     Location lastKnownLocation;
+
+    boolean tutorMode = false;
 
     @Override
     protected void onStart()
@@ -108,32 +115,37 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
 //        setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+//        if (savedInstanceState == null) {
+//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+//                    new MapsActivity()).commit();
+//            navigationView.setCheckedItem(R.id.nav_account);
+//        }
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        tutor_mode_switch = findViewById(R.id.tutor_mode_switch);
-//        tutor_mode_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-//            @Override
-//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-//
-//            }
-//        });
 
         start_tutoring_button = (Button) findViewById(R.id.start_tutor);
+        start_tutoring_button.setVisibility(View.INVISIBLE);
         start_tutoring_button.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
 
             }
         });
+
+        studentModeItem = findViewById(R.id.nav_studentMode);
+
+
 
 //        popup_button.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -145,6 +157,15 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
 
         user = mQueryService.GetUserProfile();
 
+    }
+
+    private void setOnCheckedChangeListener(){
+        new CompoundButton.OnCheckedChangeListener(){
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+            }
+        };
     }
 
     @Override
@@ -274,5 +295,31 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
     public boolean onMarkerClick(Marker marker) {
         Log.i("a", "ASDASD@@@");
         return false;
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()) {
+            case R.id.nav_account:
+                break;
+            case R.id.nav_tutorMode:
+                tutorMode();
+                break;
+            case R.id.nav_studentMode:
+                studentMode();
+                break;
+        }
+
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    public void studentMode(){
+        tutorMode = false;
+        start_tutoring_button.setVisibility(View.INVISIBLE);
+    }
+    public void tutorMode(){
+        tutorMode = true;
+        start_tutoring_button.setVisibility(View.VISIBLE);
     }
 }
