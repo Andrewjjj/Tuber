@@ -48,8 +48,9 @@ public class GatherNameActivity extends AppCompatActivity {
         {
             // Saving the UserProfile
             UserProfile userProfile = mQueryService.GetUserProfile();
-            String logMessage = "Entered addUserToFireBase with userProfile:Email: " + userProfile.GetUserProfileEmail();
-            Log.i("Registration", logMessage);
+
+            userProfile.setmName(nameText);
+            userProfile.setmPhone(phoneEditText.getText().toString());
             mDatabase.child("userProfiles").child(userProfile.GetUID()).setValue(userProfile);
             // TODO: Go to new activity
             Snackbar.make(findViewById(android.R.id.content), "Going to new activity", Snackbar.LENGTH_SHORT).show();
