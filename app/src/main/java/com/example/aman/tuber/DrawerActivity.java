@@ -1,12 +1,15 @@
 package com.example.aman.tuber;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -29,6 +32,7 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
     private String testVar = "1";
     private GoogleMap mMap;
     private int userNameNumber = 0;
+    Button popup_button;
 
     UserProfile user = new UserProfile();
     ArrayList<UserProfile> userLists = new ArrayList<>();
@@ -92,6 +96,13 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+//        popup_button.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent i = new Intent(getApplicationContext(), PopActivity.class);
+//                startActivity(i);
+//            }
+//        });
 
     }
 
@@ -119,6 +130,15 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
                 mMap.addMarker(new MarkerOptions().position(point));
                 userLists.add(new UserProfile(point));
                 userNameNumber++;
+            }
+        });
+        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+            @Override
+            public boolean onMarkerClick(Marker marker){
+                Log.i("asd", "222222");
+                Intent i = new Intent(getApplicationContext(), PopActivity.class);
+                startActivity(i);
+                return true;
             }
         });
     }
@@ -161,6 +181,7 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
 
     @Override
     public boolean onMarkerClick(Marker marker) {
+        Log.i("a", "ASDASD@@@");
         return false;
     }
 }
