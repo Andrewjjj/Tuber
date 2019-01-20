@@ -15,9 +15,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -27,6 +30,8 @@ public class AssignProfilePictureActivity extends AppCompatActivity {
 
     ImageView ProfileImage;
     Uri uri = null;
+    private StorageReference mStorageRef;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,9 @@ public class AssignProfilePictureActivity extends AppCompatActivity {
         setContentView(R.layout.activity_assign_profile_picture);
 
         ProfileImage = (ImageView) findViewById(R.id.profileImageView);
+        mStorageRef = FirebaseStorage.getInstance().getReference();
+
+        firebaseAuth = FirebaseAuth.getInstance();
     }
 
 
@@ -67,10 +75,13 @@ public class AssignProfilePictureActivity extends AppCompatActivity {
                 Bitmap image = (Bitmap) data.getExtras().get("data");
                 ProfileImage.setImageBitmap(image);
 
+
                 ByteArrayOutputStream bytes = new ByteArrayOutputStream();
                 image.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
                 String path = MediaStore.Images.Media.insertImage(this.getContentResolver(), image, "Title", null);
                 uri = Uri.parse(path);
+
+//                uri = data.getData();
 
 
             } catch (NullPointerException ex) {
@@ -98,9 +109,42 @@ public class AssignProfilePictureActivity extends AppCompatActivity {
     }
 
     private void storeInFirebase(Uri uri){
-        FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageRef = storage.getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        storageRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).putFile(uri);
+//        FirebaseStorage storage = FirebaseStorage.getInstance();
+//        StorageReference storageRef = storage.getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+//        storageRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).putFile(uri);
+//        StorageReference storageRef = storage.getReference();
+//        storageRef.putFile(uri);
+
+//        StorageReference ref = mStorageRef.child("images/"+ uri.toString());
+
+        if(uri==null){
+            Toast.makeText(this, "URI is null", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        StorageReference ref = mStorageRef.child("images/" + firebaseAuth.getCurrentUser().getUid());
+
+        ref.putFile(uri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                        Toast.makeText(AssignProfilePictureActivity.this, "Sucess", Toast.LENGTH_SHORT).show();
+
+                        // Get a URL to the uploaded content
+//                        Uri downloadUrl = taskSnapshot.getDownloadUrl();
+
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        // Handle unsuccessful uploads
+                        // ...
+                        Toast.makeText(AssignProfilePictureActivity.this, "Could not save file", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
     }
 
 
