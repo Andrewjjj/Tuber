@@ -16,16 +16,18 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
     private DrawerLayout drawer;
     private String testVar = "1";
     private GoogleMap mMap;
+    private int userNameNumber = 0;
 
     UserProfile user = new UserProfile();
     ArrayList<UserProfile> userLists = new ArrayList<>();
@@ -73,8 +75,10 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
             public void onMapClick(LatLng point) {
 //                allPoints.add(point);
 //                mMap.clear();
+
                 mMap.addMarker(new MarkerOptions().position(point));
                 userLists.add(new UserProfile(point));
+                userNameNumber++;
             }
         });
     }
@@ -113,5 +117,10 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
 
     public void clearMap(GoogleMap map){
         map.clear();
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        return false;
     }
 }
