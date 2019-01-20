@@ -37,6 +37,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener, NavigationView.OnNavigationItemSelectedListener {
@@ -62,6 +63,7 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
 
     LocationManager locationManager;
     LocationListener locationListener;
+    HashMap<LatLng, String> loc2UID;
 
     ArrayList<TutorOffer> offers;
 
@@ -77,7 +79,7 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
     protected void onStart()
     {
         super.onStart();
-
+        loc2UID = new HashMap<>();
         mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("userProfiles");
         mOfferReference = FirebaseDatabase.getInstance().getReference().child("tutoroffers");
 
@@ -259,6 +261,7 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
             public boolean onMarkerClick(Marker marker){
                 Log.i("asd", "222222");
                 Intent i = new Intent(getApplicationContext(), PopActivity.class);
+                i.putExtra("UID", loc2UID.get(marker.getPosition()));
                 startActivity(i);
                 return true;
             }
@@ -305,7 +308,9 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
         Iterator<TutorOffer> it = offers.iterator();
         while(it.hasNext()){
             TutorOffer user = it.next();
-            addMarker(new LatLng(user.GetLat(), user.GetLon()));
+            LatLng loc = new LatLng(user.GetLat(), user.GetLon());
+            addMarker(loc);
+            loc2UID.put(loc, user.GetTutorUID());
         }
     }
 /*
