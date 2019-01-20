@@ -10,6 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class SkillsActivity extends AppCompatActivity {
@@ -22,6 +25,7 @@ public class SkillsActivity extends AppCompatActivity {
     SkillListAdapter mSkillListAdapter;
     QueryService mQueryService;
     Button finishRegister;
+    DatabaseReference mDatabaseReference;
 
 
     @Override
@@ -36,6 +40,8 @@ public class SkillsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutor_info);
         skills = new ArrayList<>();
+
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference(); // this is the root
 
         mQueryService = new QueryService();
 
@@ -52,6 +58,16 @@ public class SkillsActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 // TODO: Submit this information to the database
+                ArrayList<String> skillIds = new ArrayList<>();
+                for (Skill skill : skills)
+                {
+                    mDatabaseReference.child("skills").child(skill.GetSkillId()).setValue(skill);
+                    skillIds.add(skill.GetSkillId());
+                }
+                UserProfile profile = mQueryService.GetUserProfile();
+                profile.setmSkillIds(skillIds);
+
+                mDatabaseReference.child("userProfiles").child(profile.GetUID()).setValue(profile);
 
                 Intent myIntent = new Intent(SkillsActivity.this, DrawerActivity.class);
                 startActivity(myIntent);
@@ -63,8 +79,7 @@ public class SkillsActivity extends AppCompatActivity {
 
         String skillName = addSkillNameEditText.getText().toString();
         String skillDescription = addSkillDescriptionEditText.getText().toString();
-        //String skillId = mQueryService.GetCurrentUserUID() + skillName;
-        String skillId = "Hello" + skillName;
+        String skillId = mQueryService.GetCurrentUserUID() + skillName;
         Skill newSkill = new Skill(skillName, skillDescription, skillId);
 
         skills.add(newSkill);
