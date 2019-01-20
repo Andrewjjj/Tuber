@@ -18,15 +18,18 @@ public class QueryService
     public String GetUserEmail()
     {
         // at this point we assume the user is signed into FireBase
-        return mDRS.GetUser().getEmail();
+        return "sample@aol.com";
+        // TODO: Uncomment this when the database works
+        //return mDRS.GetUser().getEmail();
+    }
+
+    public void SignUp(String UID){
+
+    }
+
+    public void SignIn(String UID){
+
     }
 
 
-    public void SignUp(String Email, String password){
-
-    }
-
-    public void SignIn(String Email, String password){
-
-    }
 }

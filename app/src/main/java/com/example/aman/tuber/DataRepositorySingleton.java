@@ -17,6 +17,7 @@ public class DataRepositorySingleton
     protected DataRepositorySingleton() {}
 
     private FirebaseUser mUser;
+    private UserProfile userProfile;
 
 
     // lazy construction of the instance
@@ -34,5 +35,13 @@ public class DataRepositorySingleton
     public FirebaseUser GetUser()
     {
         return mUser;
+    }
+
+    public void setUserProfile(UserProfile user){
+        userProfile = user;
+    }
+
+    public UserProfile getUserProfile() {
+        return userProfile;
     }
 }
