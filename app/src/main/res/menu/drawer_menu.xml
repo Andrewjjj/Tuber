@@ -8,6 +8,14 @@
             android:id="@+id/nav_account"
             android:icon="@drawable/ic_account_circle_icon"
             android:title="Edit Account" />
+        <item
+        android:id="@+id/nav_account2"
+        android:icon="@drawable/ic_account_circle_icon"
+        android:title="Edit Account2" />
+        <item
+            android:id="@+id/nav_account3"
+            android:icon="@drawable/ic_account_circle_icon"
+            android:title="Edit Account3" />
     </group>
 
     <item android:title="Communicate">
