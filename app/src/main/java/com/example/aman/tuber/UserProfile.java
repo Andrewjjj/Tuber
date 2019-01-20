@@ -43,8 +43,11 @@ public class UserProfile extends FragmentActivity {
         locationListener = this.locationListener;
     }
 
-    public UserProfile(){
+    public UserProfile(String email){
+        mEmail = email;
+    }
 
+    public UserProfile(){
     }
 
     @Override
