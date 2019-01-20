@@ -4,24 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
+
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_account"
-            android:icon="@drawable/ic_account_circle_icon"
-            android:title="Edit Account" />
-        <item
-        android:id="@+id/nav_account2"
-        android:icon="@drawable/ic_account_circle_icon"
-        android:title="Edit Account2" />
-        <item
-            android:id="@+id/nav_account3"
-            android:icon="@drawable/ic_account_circle_icon"
-            android:title="Edit Account3" />
-        <item
-            android:id="@+id/tutor_mode_switch"
-            android:title="Tutor Mode"
-            app:actionLayout="@layout/switch_item"
-            app:showAsAction="always" />
+
+            <item
+                android:id="@+id/nav_tutorMode"
+                android:icon="@drawable/ic_account_circle_icon"
+                android:title="Tutor Mode" />
+            <item
+                android:id="@+id/nav_studentMode"
+                android:icon="@drawable/ic_account_circle_icon"
+                android:title="Student Mode"/>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="Account">
+            <menu>
+                <item
+                    android:id="@+id/nav_account"
+                    android:icon="@drawable/ic_account_circle_icon"
+                    android:title="Edit Account" />
+            </menu>
+        </item>
     </group>
 
     <item android:title="Communicate">
