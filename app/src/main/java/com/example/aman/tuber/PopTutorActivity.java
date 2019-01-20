@@ -65,7 +65,7 @@ public class PopTutorActivity extends Activity {
             }
         });
 
-        getWindow().setLayout((int)(width*.7), (int)(height*.6));
+        getWindow().setLayout((int) (width * .7), (int) (height * .6));
         WindowManager.LayoutParams params = getWindow().getAttributes();
         params.gravity = Gravity.CENTER;
         params.x = 0;
@@ -84,29 +84,26 @@ public class PopTutorActivity extends Activity {
         a.add("asd");
         a.add("22");
 
-//        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("userProfiles");
-//
-//        mUID = mQueryService.GetCurrentUserUID();
-//        mUserProfileListener = new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot)
-//            {
-//                for (DataSnapshot messageSnapshot: dataSnapshot.getChildren())
-//                {
-//                    UserProfile profile = messageSnapshot.getValue(UserProfile.class);
-//                    if (profile.GetUID().equals(mUID))
-//                    {
-//                        mDRS.setUserProfile(profile);
-//                        Log.i("SigninActivity", "Found the right user Profile");
-//                        break;
-//                    }
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("userProfiles");
+
+        mUID = mQueryService.GetCurrentUserUID();
+        mUserProfileListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot messageSnapshot : dataSnapshot.getChildren()) {
+                    UserProfile profile = messageSnapshot.getValue(UserProfile.class);
+                    if (profile.GetUID().equals(mUID)) {
+                        mDRS.setUserProfile(profile);
+                        Log.i("SigninActivity", "Found the right user Profile");
+                        break;
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        };
+
 
         ArrayAdapter skillDropdownAdopter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, a);
         findSkillSpinner.setAdapter(skillDropdownAdopter);
