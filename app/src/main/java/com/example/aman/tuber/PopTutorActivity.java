@@ -134,6 +134,14 @@ public class PopTutorActivity extends Activity {
         Toast.makeText(getApplicationContext(), "SendRequest", Toast.LENGTH_SHORT);
     }
 
+    private void SubmitTutorOffer(String tutorUID, String skillName, String skillDescription, double lat, double lon)
+    {
+        TutorOffer offer = new TutorOffer(tutorUID, skillName, skillDescription, lat, lon);
+        DatabaseReference offerReference = FirebaseDatabase.getInstance().getReference().child("tutoroffers");
+
+        offerReference.child(tutorUID).setValue(offer);
+    }
+
 //    public void getSkills(List<String> listOfSkills){
 //        this.mSkills = listOfSkills;
 //    }
