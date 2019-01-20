@@ -52,13 +52,17 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
     ArrayList<UserProfile> userLists = new ArrayList<>();
 
     ValueEventListener mUserProfileListener;
+    ValueEventListener mOfferListener;
     DatabaseReference mDatabaseReference;
+    DatabaseReference mOfferReference;
     String mUID;
     QueryService mQueryService;
     DataRepositorySingleton mDRS;
 
     LocationManager locationManager;
     LocationListener locationListener;
+
+    ArrayList<TutorOffer> offers;
 
     UserProfile user;
 
@@ -73,6 +77,7 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
         super.onStart();
 
         mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("userProfiles");
+        mOfferReference = FirebaseDatabase.getInstance().getReference().child("tutoroffers");
 
         mUID = mQueryService.GetCurrentUserUID();
         // add the listener here
@@ -98,7 +103,26 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
 
             }
         };
+
+        mOfferListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                for (DataSnapshot messageSnapshot: dataSnapshot.getChildren())
+                {
+                    TutorOffer offer = messageSnapshot.getValue(TutorOffer.class);
+                    offers.add(offer);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError)
+            {
+
+            }
+        };
         mDatabaseReference.addListenerForSingleValueEvent(mUserProfileListener);
+        mOfferReference.addValueEventListener(mOfferListener);
         UserProfile userProfile = mQueryService.GetUserProfile();
 
     }
@@ -110,6 +134,8 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
         mQueryService = new QueryService();
         mDRS = DataRepositorySingleton.GetInstance();
         setContentView(R.layout.activity_drawer_layout);
+
+        offers = new ArrayList<>();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
