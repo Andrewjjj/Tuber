@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.aman.tuber">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -18,11 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".RegistrationActivity"
-            android:exported="true"></activity>
+        <activity android:name=".AssignProfilePictureActivity"></activity>
+        <activity
+            android:name=".RegistrationActivity"
+            android:exported="true" />
         <activity
             android:name=".GatherNameActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -47,15 +48,12 @@
         </activity>
         <activity
             android:name=".DrawerActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".SearchTutor"></activity>
-        <activity android:name=".PopActivity"
-            android:theme="@style/AppTheme.PopMe">
-
-        </activity>
+        <activity android:name=".SearchTutor" />
+        <activity
+            android:name=".PopActivity"
+            android:theme="@style/AppTheme.PopMe"></activity>
     </application>
 
 </manifest>
