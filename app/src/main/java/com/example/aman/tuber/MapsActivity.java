@@ -41,21 +41,21 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-        updateLocation();
+        //updateLocation();
 
         Log.i("asd","AS@@@@@@@@@@@@@@@@@@D23123123");
 
 
     }
 
-    public void updateLocation(){
+    /*public void updateLocation(){
         clearMap(mMap);
         if(user.updateMyLocation()){
             LatLng myLocation = new LatLng(user.getMyLat(), user.getMyLon());
             mMap.addMarker(new MarkerOptions().position(myLocation).title("MyLocation"));
             moveCameraToUser(myLocation);
         }
-    }
+    }*/
 
     public void moveCameraToUser(LatLng latlng){
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng, 5));

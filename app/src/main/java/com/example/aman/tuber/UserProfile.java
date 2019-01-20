@@ -15,7 +15,8 @@ import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 
-public class UserProfile extends FragmentActivity {
+public class UserProfile
+{
     /* This should store all the relevant information
         for a user account. This object will be stored in both
         FireBase and the app
@@ -29,13 +30,13 @@ public class UserProfile extends FragmentActivity {
     private String mEmail;
     private String mPhone;
     private String mProfilePictureId;
-    private ArrayList<Subject> mCourseList; // courses the user is capable of teaching
-    private ArrayList<Subject> mSkillList; // skills the user is capable of teaching
+    private ArrayList<String> mCourseIds; // courses the user is capable of teaching
+    private ArrayList<String> mSkillIds; // skills the user is capable of teaching
     private Location mCurrentLocation; // TODO: we have to figure out when to update this
 
-    private ArrayList<Transaction> mActiveTransactions;
-    private ArrayList<Transaction> mPendingTransaction;
-    private ArrayList<Transaction> mPastTransactions;
+    private ArrayList<String> mActiveTransactionIds;
+    private ArrayList<String> mPendingTransactionIds;
+    private ArrayList<String> mPastTransactionsIds;
     public LocationManager locationManager;
     public LocationListener locationListener;
 
@@ -61,7 +62,7 @@ public class UserProfile extends FragmentActivity {
 
 //    public getCoordinates
 
-    @Override
+    /*@Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == 1) {
@@ -93,7 +94,7 @@ public class UserProfile extends FragmentActivity {
             Toast.makeText(getApplicationContext(), "Don't have permission!", Toast.LENGTH_LONG);
             return false;
         }
-    }
+    } */
 
     public Location getLocationInfo(){
         return mCurrentLocation;
@@ -111,9 +112,9 @@ public class UserProfile extends FragmentActivity {
         return mCurrentLocation.getLongitude();
     }
 
-    public void requestLocationPermission(){
+    /*public void requestLocationPermission(){
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-    }
+    } */
 
     public UserProfile(String UID, String email)
     {

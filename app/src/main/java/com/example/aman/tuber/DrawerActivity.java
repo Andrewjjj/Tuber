@@ -6,10 +6,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -17,19 +15,14 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
     private DrawerLayout drawer;
@@ -149,7 +142,7 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
             addMarker(user.getMyLatLng());
         }
     }
-
+/*
     public void updateLocation(){
         clearMap(mMap);
         if(user.updateMyLocation()){
@@ -157,7 +150,7 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
             mMap.addMarker(new MarkerOptions().position(myLocation).title("MyLocation"));
             moveCameraToUser(myLocation);
         }
-    }
+    }*/
     public void moveCameraToUser(LatLng latlng){
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latlng, 5));
     }

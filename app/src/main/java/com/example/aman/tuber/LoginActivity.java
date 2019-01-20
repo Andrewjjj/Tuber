@@ -1,5 +1,6 @@
 package com.example.aman.tuber;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -42,12 +43,12 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    public void SignUp(View view){
-
-        // TODO: Launch the registration flow
+    public void SignUp(View view)
+    {
+        // launch the registration flow
+        Intent myIntent = new Intent(LoginActivity.this, RegistrationActivity.class);
+        LoginActivity.this.startActivity(myIntent);
     }
-
-
 
     public void SignIn(View view){
         final String email = editTextEmail.getText().toString().trim();
@@ -81,11 +82,14 @@ public class LoginActivity extends AppCompatActivity {
 
                             // launch drawer activity now
                             // drawer activity will take care of getting the right user object
-
+                            // launch the registration flow
+                            Intent myIntent = new Intent(LoginActivity.this, DrawerActivity.class);
+                            LoginActivity.this.startActivity(myIntent);
 
                         }
                         else{
-                            Toast.makeText(LoginActivity.this, "Could Not Sign In. Please try again.", Toast.LENGTH_SHORT).show();
+                            String message = "Sign in failed: " + task.getException().getMessage();
+                            Toast.makeText(LoginActivity.this, message, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

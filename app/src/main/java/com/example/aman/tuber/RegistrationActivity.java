@@ -43,8 +43,9 @@ public class RegistrationActivity extends AppCompatActivity {
 
     public void OnClickRegister(View view)
     {
-        String passwordText = passwordEditText.getText().toString();
-        String confirmPasswordText = confirmPasswordEditText.getText().toString();
+        final String passwordText = passwordEditText.getText().toString();
+        final String confirmPasswordText = confirmPasswordEditText.getText().toString();
+        final String emailText = emailEditText.getText().toString();
 
         if (isEditTextEmpty(emailEditText) || isEditTextEmpty(passwordEditText) || isEditTextEmpty(confirmPasswordEditText))
         {
@@ -56,8 +57,7 @@ public class RegistrationActivity extends AppCompatActivity {
         {
             if (passwordText.equals(confirmPasswordText))
             {
-                String message = "Registering user";
-                Snackbar.make(findViewById(android.R.id.content), message, Snackbar.LENGTH_SHORT).show();
+                AttemptRegistration(emailText, passwordText);
             }
             else
             {
@@ -88,7 +88,7 @@ public class RegistrationActivity extends AppCompatActivity {
                             FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                             DRS.SetUser(firebaseUser);
 
-                            UserProfile userProfile = new UserProfile(email, firebaseUser.getUid());
+                            UserProfile userProfile = new UserProfile(firebaseUser.getUid(), email);
                             DRS.setUserProfile(userProfile);
 
                             // add to the database
