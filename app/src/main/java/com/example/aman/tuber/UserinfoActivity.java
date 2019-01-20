@@ -16,8 +16,8 @@ public class UserinfoActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userinfo);
-        parentLinearLayout = (LinearLayout) findViewById(R.id.parent_linear_layout);
-        parentLinearLayout2 = (LinearLayout) findViewById(R.id.parent_linear_layout2);
+        parentLinearLayout = findViewById(R.id.parent_linear_layout);
+        parentLinearLayout2 = findViewById(R.id.parent_linear_layout2);
     }
 
     public void onAdd(View v) {
@@ -29,7 +29,7 @@ public class UserinfoActivity extends AppCompatActivity {
 
     public void onAdd2(View v) {
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        final View rowView = inflater.inflate(R.layout.field, null);
+        final View rowView = inflater.inflate(R.layout.field2, null);
         // Add the new row before the add field button.
         parentLinearLayout2.addView(rowView, parentLinearLayout2.getChildCount() - 1);
     }
@@ -38,8 +38,5 @@ public class UserinfoActivity extends AppCompatActivity {
         parentLinearLayout.removeView((View) v.getParent());
     }
 
-    public void onDelete2(View v) {
-        parentLinearLayout2.removeView((View) v.getParent());
-    }
-
+    public void onDelete2(View v) { parentLinearLayout2.removeView((View) v.getParent()); }
 }
