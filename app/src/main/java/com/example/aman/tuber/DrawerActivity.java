@@ -274,6 +274,7 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
             Location lastKnownLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             moveCameraToUser(new LatLng(lastKnownLocation.getLatitude(), lastKnownLocation.getLongitude()));
+
         }
         else{
             requestPermission();

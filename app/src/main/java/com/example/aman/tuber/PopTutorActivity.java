@@ -161,16 +161,18 @@ public class PopTutorActivity extends Activity {
 
 
 
-        mSkillListAdapter = new SkillListAdapter(new ArrayList<>(mSkills), PopTutorActivity.this);
-        skillListView = (ListView)findViewById(R.id.popup_listview);
-        skillListView.setAdapter(mSkillListAdapter);
-
+//        mSkillListAdapter = new SkillListAdapter(new ArrayList<>(mSkills), PopTutorActivity.this);
+//        skillListView = (ListView)findViewById(R.id.popup_listview);
+//        skillListView.setAdapter(mSkillListAdapter);
+//
         submitTutor = (Button) findViewById(R.id.popup_tutor_start);
         submitTutor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent myIntent = new Intent(PopTutorActivity.this, DrawerActivity.class);
-//                startActivity(myIntent);
+                user.getmSkillIds().get(0);
+                submitTutorOffer(user.GetUID(), mSkills.get(0).GetSkillName(), mSkills.get(0).GetSkillDescription(), user.getmLat(), user.getmLon());
+                Intent myIntent = new Intent(PopTutorActivity.this, DrawerActivity.class);
+                startActivity(myIntent);
             }
         });
 
@@ -204,7 +206,7 @@ public class PopTutorActivity extends Activity {
         Toast.makeText(getApplicationContext(), "SendRequest", Toast.LENGTH_SHORT);
     }
 
-    private void SubmitTutorOffer(String tutorUID, String skillName, String skillDescription, double lat, double lon)
+    private void submitTutorOffer(String tutorUID, String skillName, String skillDescription, double lat, double lon)
     {
         TutorOffer offer = new TutorOffer(tutorUID, skillName, skillDescription, lat, lon);
         DatabaseReference offerReference = FirebaseDatabase.getInstance().getReference().child("tutoroffers");
