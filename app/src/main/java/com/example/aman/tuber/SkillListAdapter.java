@@ -44,13 +44,10 @@ public class SkillListAdapter extends BaseAdapter
         if (convertView == null) {
             convertView = LayoutInflater.from(myContext).inflate(R.layout.skill_item, parent, false);
         }
-        TextView skillName = (TextView)convertView.findViewById(R.id.skillName);
-        TextView skillDescription = (TextView)convertView.findViewById(R.id.skillDescription);
-        skillName.setText("Hello");
-        skillDescription.setText("Bonjour");
-        /*
+        TextView skillName = (TextView)convertView.findViewById(R.id.SkillNameItemText);
+        TextView skillDescription = (TextView)convertView.findViewById(R.id.skillDescriptionItemText);
         skillName.setText(skills.get(position).GetSkillName());
-        skillDescription.setText(skills.get(position).GetSkillDescription());*/
+        skillDescription.setText(skills.get(position).GetSkillDescription());
 
         return convertView;
     }

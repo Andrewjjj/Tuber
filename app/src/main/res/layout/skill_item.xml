@@ -6,7 +6,7 @@
     android:padding="10dp">
 
     <TextView
-        android:id="@+id/SkillName"
+        android:id="@+id/SkillNameItemText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -16,10 +16,10 @@
 
 
     <TextView
-        android:id="@+id/skillDescription"
+        android:id="@+id/skillDescriptionItemText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/SkillName"
+        android:layout_below="@+id/SkillNameItemText"
         android:layout_marginTop="5dp"
         android:text="Skill Description but this maybe a very long string and the app needs to be able to display it"
         android:textColor="@android:color/black" />
