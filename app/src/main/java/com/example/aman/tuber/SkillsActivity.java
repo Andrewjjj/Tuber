@@ -12,23 +12,48 @@ import java.util.ArrayList;
 
 public class SkillsActivity extends AppCompatActivity {
 
-    ListView listView;
-    EditText editText;
+    ListView skillListView;
+    EditText addSkillNameEditText;
+    EditText addSkillDescriptionEditText;
     ArrayList<ColorSpace.Model> ItemModelList;
-    Skill skill;
+    ArrayList<Skill> skills;
+    SkillListAdapter mSkillListAdapter;
+    QueryService mQueryService;
 
+
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutor_info);
+        skills = new ArrayList<>();
 
+        mQueryService = new QueryService();
+
+        mSkillListAdapter = new SkillListAdapter(skills, SkillsActivity.this);
+
+        addSkillNameEditText = (EditText) findViewById(R.id.SkillNameEditText);
+        addSkillDescriptionEditText = (EditText) findViewById(R.id.skillDescriptionEditText);
+        skillListView = (ListView)findViewById(R.id.listview);
+        skillListView.setAdapter(mSkillListAdapter);
     }
 
-    @SuppressLint("NewApi")
-    public void addSkill(View v)    {
-        String skillName = editTextView.getText().toString();
+    public void onAddSkill(View v) {
 
+        String skillName = addSkillNameEditText.getText().toString();
+        String skillDescription = addSkillDescriptionEditText.getText().toString();
+        //String skillId = mQueryService.GetCurrentUserUID() + skillName;
+        String skillId = "Hello" + skillName;
+        Skill newSkill = new Skill(skillName, skillDescription, skillId);
+
+        skills.add(newSkill);
+        mSkillListAdapter.notifyDataSetChanged();
     }
 
 

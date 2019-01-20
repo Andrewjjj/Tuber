@@ -57,6 +57,8 @@
             android:name=".DrawerActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".MainActivity" />
+        <activity android:name=".SkillsActivity"
+            android:exported="true" />
         <activity android:name=".SearchTutor" />
         <activity
             android:name=".PopActivity"
