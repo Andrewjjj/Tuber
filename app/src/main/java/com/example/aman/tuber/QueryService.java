@@ -27,6 +27,11 @@ public class QueryService
         return mDRS.GetUser().getUid();
     }
 
+    public UserProfile GetUserProfile()
+    {
+        return mDRS.getUserProfile();
+    }
+
     public void SignUp(String UID){
 
     }

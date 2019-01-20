@@ -32,59 +32,6 @@ public class UserProfile
     private double mLat;
     private double mLon;
 
-    public UserProfile(String email){
-        mEmail = email;
-    }
-
-    public UserProfile(){
-    }
-
-    public UserProfile(double lat, double lon){
-        this.mLat = lat;
-        this.mLon = lon;
-    }
-
-    public UserProfile(LatLng latlng){
-        this.mLat = latlng.latitude;
-        this.mLon = latlng.longitude;
-    }
-
-//    public getCoordinates
-
-    /*@Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == 1) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-                }
-            }
-        }
-    }
-
-    public boolean checkPermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        } else {
-            requestLocationPermission();
-            return false;
-        }
-    }
-
-    // Might not need
-    public boolean updateMyLocation() {
-        if (checkPermission()) {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-            mCurrentLocation = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            return true;
-        }
-        else {
-            Toast.makeText(getApplicationContext(), "Don't have permission!", Toast.LENGTH_LONG);
-            return false;
-        }
-    } */
-
     public void setLatLon(double lat, double lon){
         this.mLat = lat;
         this.mLon = lon;
@@ -118,8 +65,14 @@ public class UserProfile
         mEmail = email;
     }
 
+
     public String GetUID()
     {
         return mUID;
+    }
+
+    public String GetUserProfileEmail()
+    {
+        return mEmail;
     }
 }

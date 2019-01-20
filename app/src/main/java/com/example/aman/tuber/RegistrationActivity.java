@@ -6,6 +6,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -110,7 +111,11 @@ public class RegistrationActivity extends AppCompatActivity {
     private void addUserToFireBase(UserProfile userProfile)
     {
         // Saving the UserProfile
-        mDatabase.child("userProfiles").child(userProfile.GetUID()).setValue(userProfile);
+        SmallClass small = new SmallClass(userProfile.GetUID() ,userProfile.GetUserProfileEmail());
+        mDatabase.child("smallClasses").child(userProfile.GetUID()).setValue(small);
+        String logMessage = "Entered addUserToFireBase with userProfile:Email: " + userProfile.GetUserProfileEmail();
+        Log.i("Registration", logMessage);
+        mDatabase.child("userProfiles").child(userProfile.GetUID()).push().setValue(userProfile);
     }
 
 }

@@ -34,7 +34,6 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
     private int userNameNumber = 0;
     Button popup_button;
 
-    UserProfile user = new UserProfile();
     ArrayList<UserProfile> userLists = new ArrayList<>();
 
     ValueEventListener mUserProfileListener;
@@ -126,10 +125,10 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
             public void onMapClick(LatLng point) {
 //                allPoints.add(point);
 //                mMap.clear();
-
+/*
                 mMap.addMarker(new MarkerOptions().position(point));
                 userLists.add(new UserProfile(point));
-                userNameNumber++;
+                userNameNumber++;*/
             }
         });
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
