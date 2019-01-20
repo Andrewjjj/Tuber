@@ -165,7 +165,8 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
         start_tutoring_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(getApplicationContext(), PopTutorActivity.class);
+                startActivity(i);
             }
         });
 

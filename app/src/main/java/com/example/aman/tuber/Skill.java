@@ -22,4 +22,10 @@ public class Skill
     public void SetSkillName(String skillName) { mSkillName = skillName; }
     public void SetSkillDescription(String skillDescription) { mSkillDescription = skillDescription; }
     public void SetSkillId(String skillId) { mSkillId = skillId; }
+
+
+    public String toString()
+    {
+        return mSkillName;
+    }
 }

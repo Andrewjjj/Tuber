@@ -1,15 +1,21 @@
 package com.example.aman.tuber;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.graphics.ColorSpace;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -19,6 +25,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +44,18 @@ public class PopTutorActivity extends Activity {
     List<Skill> mSkills;
 
     UserProfile user;
+
+    Spinner spinner;
+    ArrayAdapter<CharSequence> adapter;
+
+
+    ListView skillListView;
+    EditText addSkillNameEditText;
+    EditText addSkillDescriptionEditText;
+    ArrayList<ColorSpace.Model> ItemModelList;
+    ArrayList<Skill> skills;
+    SkillListAdapter mSkillListAdapter;
+    Button submitTutor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +100,13 @@ public class PopTutorActivity extends Activity {
         // TODO: Check if its empty
 //        mSkills = user.getmSkillIds();
 
-        Spinner findSkillSpinner = findViewById(R.id.skill_spinner);
+
+
+        //3333
         ArrayList<String> a = new ArrayList<String>();
         a.add("asd");
         a.add("22");
+        //3333
 
         mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("skills");
         mSkillListener = new ValueEventListener() {
@@ -103,10 +125,58 @@ public class PopTutorActivity extends Activity {
         };
 
         mDatabaseReference.addListenerForSingleValueEvent(mSkillListener);
-        ArrayAdapter skillDropdownAdopter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, a);
-        findSkillSpinner.setAdapter(skillDropdownAdopter);
+
+//        spinner = findViewById(R.id.skill_spinner);
+//        adapter = ArrayAdapter.createFromResource(this, mSkills, android.R.layout.simple_spinner_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spinner.setAdapter(adapter);
+//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+//
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> parent) {
+//
+//            }
+//        });
+//        ArrayAdapter adapter =
+//                new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, mSkills);
+//        spinner.setAdapter(adapter);
+//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                //get id of the selected item using position 'i'
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
+//        ArrayAdapter skillDropdownAdopter = new ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, mSkills);
+//        findSkillSpinner.setAdapter(skillDropdownAdopter);
+//        skillDropdownAdopter.notifyDataSetChanged();
+
+
+
+        mSkillListAdapter = new SkillListAdapter(new ArrayList<>(mSkills), PopTutorActivity.this);
+        skillListView = (ListView)findViewById(R.id.popup_listview);
+        skillListView.setAdapter(mSkillListAdapter);
+
+        submitTutor = (Button) findViewById(R.id.popup_tutor_start);
+        submitTutor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                Intent myIntent = new Intent(PopTutorActivity.this, DrawerActivity.class);
+//                startActivity(myIntent);
+            }
+        });
 
     }
+
+
 
     @Override
     protected void onStart()

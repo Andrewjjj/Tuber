@@ -63,6 +63,9 @@
         <activity
             android:name=".PopActivity"
             android:theme="@style/AppTheme.PopMe"></activity>
+        <activity
+            android:name=".PopTutorActivity"
+            android:theme="@style/AppTheme.PopMe"></activity>
     </application>
 
 </manifest>
