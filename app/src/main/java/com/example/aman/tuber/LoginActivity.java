@@ -19,6 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.onesignal.OneSignal;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -43,6 +44,8 @@ public class LoginActivity extends AppCompatActivity {
         editTextPassword = (EditText) findViewById(R.id.userPasswordInput);
 
         databaseUserProfile = FirebaseDatabase.getInstance().getReference("UserProfiles");
+
+        OneSignal.startInit(this).init();
 
     }
 
@@ -80,6 +83,8 @@ public class LoginActivity extends AppCompatActivity {
 
                             FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                             singleton.SetUser(firebaseUser);
+
+                            OneSignal.sendTag("User_ID",email);
 
 
                             // launch drawer activity now

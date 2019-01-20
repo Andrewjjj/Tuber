@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.onesignal.OneSignal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -97,6 +98,8 @@ public class RegistrationActivity extends AppCompatActivity {
 
                             // add to the database
                             addUserToFireBase(userProfile);
+
+                            OneSignal.sendTag("User_ID",email);
 
                             // launch the next activity
                             Intent myIntent = new Intent(RegistrationActivity.this, GatherNameActivity.class);
