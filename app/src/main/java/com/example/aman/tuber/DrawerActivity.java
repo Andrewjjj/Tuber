@@ -17,6 +17,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -40,6 +42,8 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
     private GoogleMap mMap;
     private int userNameNumber = 0;
     Button popup_button;
+    Button start_tutoring_button;
+    Switch tutor_mode_switch;
 
     ArrayList<UserProfile> userLists = new ArrayList<>();
 
@@ -114,6 +118,22 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        tutor_mode_switch = findViewById(R.id.tutor_mode_switch);
+//        tutor_mode_switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//
+//            }
+//        });
+
+        start_tutoring_button = (Button) findViewById(R.id.start_tutor);
+        start_tutoring_button.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
 //        popup_button.setOnClickListener(new View.OnClickListener() {
 //            @Override
