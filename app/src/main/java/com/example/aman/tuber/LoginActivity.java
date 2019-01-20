@@ -1,5 +1,6 @@
 package com.example.aman.tuber;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -65,7 +66,6 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
             return;
         }
-
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -83,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
                             // launch drawer activity now
                             // drawer activity will take care of getting the right user object
                             // launch the registration flow
+
                             Intent myIntent = new Intent(LoginActivity.this, DrawerActivity.class);
                             LoginActivity.this.startActivity(myIntent);
 
@@ -93,5 +94,6 @@ public class LoginActivity extends AppCompatActivity {
                         }
                     }
                 });
+
     }
 }
