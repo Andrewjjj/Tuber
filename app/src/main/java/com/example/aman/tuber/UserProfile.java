@@ -1,15 +1,6 @@
 package com.example.aman.tuber;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.content.ContextCompat;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 
@@ -37,12 +28,9 @@ public class UserProfile
     private ArrayList<String> mActiveTransactionIds;
     private ArrayList<String> mPendingTransactionIds;
     private ArrayList<String> mPastTransactionsIds;
-    public LocationManager locationManager;
-    public LocationListener locationListener;
 
-    private LatLng myLatLng;
-    private double myLat;
-    private double myLon;
+    private double mLat;
+    private double mLon;
 
     public UserProfile(String email){
         mEmail = email;
@@ -52,12 +40,13 @@ public class UserProfile
     }
 
     public UserProfile(double lat, double lon){
-        this.myLat = lat;
-        this.myLon = lon;
+        this.mLat = lat;
+        this.mLon = lon;
     }
 
     public UserProfile(LatLng latlng){
-        this.myLatLng = latlng;
+        this.mLat = latlng.latitude;
+        this.mLon = latlng.longitude;
     }
 
 //    public getCoordinates
@@ -96,21 +85,28 @@ public class UserProfile
         }
     } */
 
+    public void setLatLon(double lat, double lon){
+        this.mLat = lat;
+        this.mLon = lon;
+    }
+
     public Location getLocationInfo(){
         return mCurrentLocation;
     }
 
     public LatLng getMyLatLng(){
-        return myLatLng;
+        return new LatLng(mLat, mLon);
     }
 
     public double getMyLat(){
-        return mCurrentLocation.getLatitude();
+        return mLat;
     }
 
     public double getMyLon(){
-        return mCurrentLocation.getLongitude();
+        return mLon;
     }
+
+
 
     /*public void requestLocationPermission(){
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
