@@ -29,5 +29,5 @@ public class TutorOffer
     public void SetSkillName(String skillName) { mSkillName = skillName; }
     public void SetSkillDescription(String skillDescription) { mSkillDescription = skillDescription; }
     public void SetLat(double lat) { mLat = lat; }
-    public void SetLon(double) { mLon = lon; }
+    public void SetLon(double lon) { mLon = lon; }
 }
