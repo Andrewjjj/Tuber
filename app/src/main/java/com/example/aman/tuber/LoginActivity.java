@@ -44,60 +44,10 @@ public class LoginActivity extends AppCompatActivity {
 
     public void SignUp(View view){
 
-        final String email = editTextEmail.getText().toString().trim();
-        final String password  = editTextPassword.getText().toString().trim();
-
-
-        //checking if email and passwords are empty
-        if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        if(TextUtils.isEmpty(password)){
-            Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        //creating a new user
-        firebaseAuth.createUserWithEmailAndPassword(email,password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(LoginActivity.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
-
-                            DataRepositorySingleton singleton = DataRepositorySingleton.GetInstance() ;
-
-                            FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-                            singleton.SetUser(firebaseUser);
-
-                            UserProfile user = new UserProfile(email);
-                            singleton.setUserProfile(user);
-
-                            // add to the database
-                            addUser(user);
-
-                        }else{
-                            Toast.makeText(LoginActivity.this, "Could Not Register. Please try again.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+        // TODO: Launch the registration flow
     }
 
-    private void addUser(UserProfile userProfile){
 
-        //getting a unique id using push().getKey() method
-        //it will create a unique id and we will use it as the Primary Key for our User
-        String id = databaseUserProfile.push().getKey();
-
-        // Saving the UserProfile
-        databaseUserProfile.child(id).setValue(userProfile);
-
-        //displaying a success toast
-        Toast.makeText(this, "added to database", Toast.LENGTH_LONG).show();
-
-    }
 
     public void SignIn(View view){
         final String email = editTextEmail.getText().toString().trim();
@@ -128,12 +78,11 @@ public class LoginActivity extends AppCompatActivity {
                             FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
                             singleton.SetUser(firebaseUser);
 
-                            singleton.setUserProfile( new UserProfile(email) );
 
-                            // close this activity
-//                            finish();TODO
-                            // start the log in activity
-//                            TODO:
+                            // launch drawer activity now
+                            // drawer activity will take care of getting the right user object
+
+
                         }
                         else{
                             Toast.makeText(LoginActivity.this, "Could Not Sign In. Please try again.", Toast.LENGTH_SHORT).show();

@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -18,10 +17,19 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
     private DrawerLayout drawer;
@@ -31,6 +39,45 @@ public class DrawerActivity extends AppCompatActivity implements OnMapReadyCallb
 
     UserProfile user = new UserProfile();
     ArrayList<UserProfile> userLists = new ArrayList<>();
+
+    ValueEventListener mUserProfileListener;
+    DatabaseReference mDatabaseReference;
+    String mUID;
+    QueryService mQueryService;
+    DataRepositorySingleton mDRS;
+
+    @Override
+    protected void onStart()
+    {
+        super.onStart();
+        mQueryService = new QueryService();
+        mDRS = DataRepositorySingleton.GetInstance();
+        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("userProfiles");
+
+        mUID = mQueryService.GetCurrentUserUID();
+        // add the listener here
+        mUserProfileListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot)
+            {
+                for (DataSnapshot messageSnapshot: dataSnapshot.getChildren())
+                {
+                    if (messageSnapshot.getKey().equals(mUID))
+                    {
+                        UserProfile profile = messageSnapshot.getValue(UserProfile.class);
+                        mDRS.setUserProfile(profile);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError)
+            {
+
+            }
+        };
+        mDatabaseReference.addListenerForSingleValueEvent(mUserProfileListener);
+    }
 
 
     @Override

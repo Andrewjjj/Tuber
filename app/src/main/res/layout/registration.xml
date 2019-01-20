@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".RegistrationActivity">
 
     <TextView
         android:id="@+id/Registration"
@@ -22,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Email"
+        android:id="@+id/registerEmailEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="84dp"
@@ -32,12 +33,12 @@
         android:hint="example@email.com"
         android:inputType="textEmailAddress"
         android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/Password"
+        app:layout_constraintBottom_toTopOf="@+id/PasswordEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/Password"
+        android:id="@+id/PasswordEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="83dp"
@@ -47,12 +48,12 @@
         android:hint="password"
         android:inputType="textPassword"
         android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/ConfirmPassword"
+        app:layout_constraintBottom_toTopOf="@+id/ConfirmPasswordEditText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/ConfirmPassword"
+        android:id="@+id/ConfirmPasswordEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="82dp"
@@ -62,17 +63,18 @@
         android:hint="Confirm Password"
         android:inputType="textPassword"
         android:padding="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/RegisterAccountButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/RegisterAccountButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="140dp"
         android:layout_marginEnd="148dp"
         android:layout_marginBottom="113dp"
+        android:onClick="OnClickRegister"
         android:padding="10dp"
         android:text="Register!"
         app:layout_constraintBottom_toBottomOf="parent"

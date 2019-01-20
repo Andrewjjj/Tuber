@@ -24,7 +24,7 @@ public class UserProfile extends FragmentActivity {
         appropriate data
      */
 
-
+    private String mUID;
     private String mName;
     private String mEmail;
     private String mPhone;
@@ -36,7 +36,6 @@ public class UserProfile extends FragmentActivity {
     private ArrayList<Transaction> mActiveTransactions;
     private ArrayList<Transaction> mPendingTransaction;
     private ArrayList<Transaction> mPastTransactions;
-
     public LocationManager locationManager;
     public LocationListener locationListener;
 
@@ -116,4 +115,14 @@ public class UserProfile extends FragmentActivity {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
     }
 
+    public UserProfile(String UID, String email)
+    {
+        mUID = UID;
+        mEmail = email;
+    }
+
+    public String GetUID()
+    {
+        return mUID;
+    }
 }

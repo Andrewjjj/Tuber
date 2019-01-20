@@ -1,10 +1,11 @@
 package com.example.aman.tuber;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
-import android.support.design.widget.Snackbar;
+
 
 public class GatherNameActivity extends AppCompatActivity {
 
@@ -18,13 +19,14 @@ public class GatherNameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gather_name);
 
-        mQueryService = new QueryService();
 
         emailEditText = (EditText) findViewById(R.id.emailEditText);
         nameEditText  = (EditText) findViewById(R.id.NameEditText);
         phoneEditText  = (EditText) findViewById(R.id.PhoneEditText);
         emailEditText.setEnabled(false);
         emailEditText.setText(mQueryService.GetUserEmail());
+
+
     }
 
     public void ClickContinue(View view)
