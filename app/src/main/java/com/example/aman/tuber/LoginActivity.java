@@ -52,10 +52,11 @@ public class LoginActivity extends AppCompatActivity {
         databaseUserProfile = FirebaseDatabase.getInstance().getReference("UserProfiles");
 
         // TODO: FCM
-        OneSignal.startInit(this)
-                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
-                .unsubscribeWhenNotificationsAreDisabled(true)
-                .init();
+//        OneSignal.startInit(this)
+//                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+//                .unsubscribeWhenNotificationsAreDisabled(true)
+//                .init();
+        OneSignal.startInit(this).init();
 
 
     }
