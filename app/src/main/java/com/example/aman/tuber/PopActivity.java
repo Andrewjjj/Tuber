@@ -49,6 +49,14 @@ public class PopActivity extends Activity {
 
         getWindow().setAttributes(params);
 
+        send_request_button = (Button) findViewById(R.id.popup_send_request_btn);
+        send_request_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
+
     }
 
     public void send_request(){
