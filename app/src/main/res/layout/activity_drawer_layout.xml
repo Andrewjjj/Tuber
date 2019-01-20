@@ -28,6 +28,20 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="clearMarkers"
+            android:text="clearMarkers" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="displayMarkers"
+            android:text="Display Markers" />
+
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"

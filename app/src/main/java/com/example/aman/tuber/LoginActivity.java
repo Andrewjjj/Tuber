@@ -40,7 +40,6 @@ public class LoginActivity extends AppCompatActivity {
 
         databaseUserProfile = FirebaseDatabase.getInstance().getReference("UserProfiles");
 
-
     }
 
     public void SignUp(View view){
