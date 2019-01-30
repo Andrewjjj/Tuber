@@ -3,10 +3,10 @@ Location based tutor finding app!
 
 # Contributers:
 
--Andrew Juwon Park 
--Adit Hasan 
--Aman Anand 
--Wonbin Jeong
+-Andrew Juwon Park   
+-Adit Hasan  
+-Aman Anand  
+-Wonbin Jeong  
 
 
 
@@ -17,11 +17,11 @@ Uses Google Map api for location-related tasks
 Tech
 Dillinger uses a number of open source projects to work properly:
 
-[Google-API] - API enabling the use of Google Map
-[Firebase] - Free database online to handle all our data
-[Android-Studio] - Our main environment of coding
-[Java] - Our main programming language to code
-[Github] - Used for source control // collaboration
+[Google-API] - API enabling the use of Google Map  
+[Firebase] - Free database online to handle all our data  
+[Android-Studio] - Our main environment of coding  
+[Java] - Our main programming language to code  
+[Github] - Used for source control // collaboration  
 
 # Requirements:
 
