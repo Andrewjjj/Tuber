@@ -12,10 +12,8 @@ Location based tutor finding app!
 
 # Key points
 
-Stores data with firebase
-Uses Google Map api for location-related tasks
-Tech
-Dillinger uses a number of open source projects to work properly:
+Stores data with firebase  
+Uses Google Map api for location-related tasks  
 
 [Google-API] - API enabling the use of Google Map  
 [Firebase] - Free database online to handle all our data  
